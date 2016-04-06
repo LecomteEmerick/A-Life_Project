@@ -3,17 +3,31 @@ using System.Collections;
 
 public class HearInfosClass : SensorialClass
 {
-
-    const SensesType Type = SensesType.Hearing;
-
     public float Volume;
 
-    public float LowFrequencyValue;
-    public float MediumFrequencyValue;
-    public float HightFrequencyValue;
+    private float LowFrequencyValue;
+    private float MediumFrequencyValue;
+    private float HighFrequencyValue;
 
     public HearInfosClass()
     {
+        base.Type = SensesType.Hearing;
+    }
 
+    public HearInfosClass(float Volume, float LowFrequency, float MediumFrequency, float HighFrequency)
+    {
+        this.Volume = Volume;
+        this.LowFrequencyValue = LowFrequency;
+        this.MediumFrequencyValue = MediumFrequency;
+        this.HighFrequencyValue = HighFrequency;
+        base.Type = SensesType.Hearing;
+    }
+
+    public string printInfos()
+    {
+        return "LowFrequency : " + LowFrequencyValue +
+            "MediumFrequency : " + MediumFrequencyValue +
+            "HightFrequency : " + HighFrequencyValue +
+            "Volume : " + Volume + " db";
     }
 }

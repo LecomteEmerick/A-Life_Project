@@ -1,66 +1,41 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class SoundEmitter : MonoBehaviour {
 
-    [SerializeField]
-    private SphereCollider SoundCollider;
+    public Transform ObjectTransform;
 
-    private HearInfosClass Sound;
-    private EmitterClass<HearInfosClass> Emitter;
+    private List<HearInfosClass> ContinusSound;
 
     void Start()
     {
-        this.Sound = new HearInfosClass();
-
-        this.Sound.LowFrequencyValue = 0.5f;
-        this.Sound.MediumFrequencyValue = 0.5f;
-        this.Sound.HightFrequencyValue = 0.5f;
-
-        this.Sound.Volume = 0.0f;
-
-        this.Emitter = new EmitterClass<HearInfosClass>(this.Sound);
-
-        this.InvokeRepeating("ChangeSound", 2.0f, 5.0f);
-        this.InvokeRepeating("SendSound", 0.0f, 1.0f);
+        this.ContinusSound = new List<HearInfosClass>();
     }
 
-    void ChangeSound()
+    public void EmittePonctualSound(HearInfosClass sound)
     {
-        this.Sound.Volume = this.Sound.Volume == 0.0f ? 10.0f : 0.0f;
-
-        this.SoundCollider.radius = 0.5f + this.Sound.Volume; 
+        //CARE MEMORY USAGE (THREAD?)
+        List<CreatureClass> Receptors = GameData.CreatureManagerInstance.SphereCastCreature(ObjectTransform.position, sound.Volume);
+        foreach (CreatureClass receptor in Receptors)
+            receptor.SoundReceptor.Receptor.Reception(sound);
     }
 
-    void SendSound()
+    public void EmitteContinueSound(HearInfosClass sound)
     {
-        this.Emitter.Emit();
+        ContinusSound.Add(sound);
     }
 
-    void OnTriggerEnter(Collider other)
+    public void RemoveContinueSound(HearInfosClass sound)
     {
-        CreatureClass creatureClass;
-        if (GameData.CreatureManagerInstance.CreatureList.TryGetValue(other, out creatureClass))
-        {
-            this.Emitter.RegisterReceptor(creatureClass.SoundReceptor.Receptor);
-            creatureClass.SoundReceptor.Receptor.Reception(this.Sound);
-        }
-        else
-        {
-            Debug.LogError("Collider cannot be found.");
-        }
+        ContinusSound.Remove(sound);
     }
 
-    void OnTriggerExit(Collider other)
+    void FixedUpdate()
     {
-        CreatureClass creatureClass;
-        if (GameData.CreatureManagerInstance.CreatureList.TryGetValue(other, out creatureClass))
+        foreach(HearInfosClass sound in this.ContinusSound)
         {
-            this.Emitter.UnRegisterReceptor(creatureClass.SoundReceptor.Receptor);
-        }
-        else
-        {
-            Debug.LogError("Collider cannot be found.");
+            EmittePonctualSound(sound);
         }
     }
 }

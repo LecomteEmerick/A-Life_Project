@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SoundReceptor : MonoBehaviour {
 
+    [SerializeField]
+    private BrainScript BrainHandler;
 
     private ReceptorClass<HearInfosClass> receptor;
 
@@ -24,7 +26,7 @@ public class SoundReceptor : MonoBehaviour {
 
     void SoundReceptorUpdateFunction(HearInfosClass infos)
     {
-        Debug.Log("Sound receive.");
+        BrainHandler.SensorialInformationReceiver(infos);
     }
 
 }
