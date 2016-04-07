@@ -11,4 +11,10 @@ public class CreatureClass : MonoBehaviour {
 
     public SoundReceptor SoundReceptor;
 
+    //Use this for initialize internal script
+    public void Initialize()
+    {
+
+    }
+
 }

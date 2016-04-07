@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Runtime.CompilerServices;
 
 public static class GameData {
 
@@ -8,5 +7,5 @@ public static class GameData {
 
     static public EnvironnementManager EnvironnementManagerInstance;
     static public CreatureManager CreatureManagerInstance;
-
+    static public SoundBankManager SoundBankInstance;
 }

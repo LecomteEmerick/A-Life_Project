@@ -8,8 +8,13 @@ public class EnvironnementManager : MonoBehaviour {
 
     public Dictionary<Collider, ObjectClass> ObjectList;
 
-    void Start()
+    public void Initialize()
     {
+        foreach(ObjectClass obj in SceneObject)
+        {
+            obj.Initialize();
+        }
+
         this.ObjectList = new Dictionary<Collider, ObjectClass>();
         foreach(ObjectClass obj in SceneObject)
         {

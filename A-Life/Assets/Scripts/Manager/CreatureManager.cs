@@ -10,8 +10,13 @@ public class CreatureManager : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start ()
+	public void Intialize()
     {
+        //foreach(CreatureClass creature in SceneCreatureList)
+        //{
+        //    creature.Initialize();
+        //}
+
         this.CreatureList = new Dictionary<Collider, CreatureClass>();
         foreach(CreatureClass creatureInfos in SceneCreatureList)
         {
