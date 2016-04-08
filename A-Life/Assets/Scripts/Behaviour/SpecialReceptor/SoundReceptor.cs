@@ -4,7 +4,7 @@ using System.Collections;
 public class SoundReceptor : MonoBehaviour {
 
     [SerializeField]
-    private BrainScript BrainHandler;
+    private InputSensesScript BrainHandler;
 
     private ReceptorClass<HearInfosClass> receptor;
 
@@ -16,17 +16,17 @@ public class SoundReceptor : MonoBehaviour {
         }
     }
 
-    void Start()
+    public void Initialize()
     {
         this.receptor = new ReceptorClass<HearInfosClass>();
-        this.receptor.UpdateFunction = this.SoundReceptorUpdateFunction;
+        this.receptor.UpdateEmittorFunction = this.SoundReceptorUpdateFunction;
     }
 
 
 
-    void SoundReceptorUpdateFunction(HearInfosClass infos)
+    void SoundReceptorUpdateFunction(HearInfosClass infos, Vector3 EmittorPosition)
     {
-        BrainHandler.SensorialInformationReceiver(infos);
+        BrainHandler.SensorialInformationReceiver(infos, EmittorPosition);
     }
 
 }

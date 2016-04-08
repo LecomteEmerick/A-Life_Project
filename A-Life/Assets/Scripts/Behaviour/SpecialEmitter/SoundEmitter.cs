@@ -8,7 +8,7 @@ public class SoundEmitter : MonoBehaviour {
 
     private List<HearInfosClass> ContinusSound;
 
-    void Start()
+    public void Initialize()
     {
         this.ContinusSound = new List<HearInfosClass>();
     }
@@ -16,9 +16,9 @@ public class SoundEmitter : MonoBehaviour {
     public void EmittePonctualSound(HearInfosClass sound)
     {
         //CARE MEMORY USAGE (THREAD?)
-        List<CreatureClass> Receptors = GameData.CreatureManagerInstance.SphereCastCreature(ObjectTransform.position, sound.Volume);
-        foreach (CreatureClass receptor in Receptors)
-            receptor.SoundReceptor.Receptor.Reception(sound);
+        List<CreatureClass> CreatureData = GameData.CreatureManagerInstance.SphereCastCreature(ObjectTransform.position, sound.Volume);
+        foreach (CreatureClass creature in CreatureData)
+            creature.SoundReceptor.Receptor.Reception(sound, ObjectTransform.position);
     }
 
     public void EmitteContinueSound(HearInfosClass sound)
