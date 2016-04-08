@@ -1,0 +1,23 @@
+Au niveau du cerveau : 
+	Selection de l'objet courant regardé
+	Choix de l'interaction voulu du cerveau
+
+
+Au niveau du gameplay :
+	Déplacement du joueur
+	Interaction du joueur avec les creatures
+	tableau informatif du joueur (GUI)
+
+
+Au niveau de la physionomie interne des créatures :
+	Caractéristique du type : 
+		-fatigue
+		-faim
+		-douleur
+	Caractéstique de transformation chimique : glucose, adrénaline, vitamine (défense immunitaire)
+	Caractéristique génétique (%de transformation du sucre en glucose / production d'adrénaline / hormones de reproduction)
+
+
+A Finir :
+	Les entrées sur les sens
+
