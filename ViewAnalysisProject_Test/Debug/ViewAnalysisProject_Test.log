@@ -1,0 +1,2 @@
+﻿  Main.cpp
+d:\users\emerick lecomte\mes documents\github\a-life_project\viewanalysisproject_test\main.cpp(3): fatal error C1083: Impossible d'ouvrir le fichier include : 'opencv2/opencv.hpp' : No such file or directory

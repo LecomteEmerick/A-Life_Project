@@ -58,12 +58,12 @@ public class InputSensesScript : CreatureScriptBehaviour
 
     private void TreatHearingInfos(HearInfosClass hear,Vector3 Position)
     {
-        //Debug.Log(hear.printInfos());
+        Debug.Log(hear.printInfos());
     }
 
     private void TreatSmellingInfos(SmellInfosClass smell, Vector3 Position)
     {
-        //Debug.Log("Smell infos receive on brain.");
+        Debug.Log("Smell infos receive on brain.");
     }
 
     private void TreatTastingInfos(TasteInfosClass taste)

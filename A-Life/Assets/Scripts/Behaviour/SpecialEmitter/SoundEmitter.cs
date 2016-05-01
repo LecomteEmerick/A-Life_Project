@@ -6,11 +6,11 @@ public class SoundEmitter : MonoBehaviour {
 
     public Transform ObjectTransform;
 
-    private List<HearInfosClass> ContinusSound;
+    private List<HearInfosClass> ContinusSound = new List<HearInfosClass>();
 
     public void Initialize()
     {
-        this.ContinusSound = new List<HearInfosClass>();
+        //this.ContinusSound = new List<HearInfosClass>();
     }
 
     public void EmittePonctualSound(HearInfosClass sound)

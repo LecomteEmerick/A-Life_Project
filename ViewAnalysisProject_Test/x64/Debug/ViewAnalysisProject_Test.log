@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Main.cpp
+d:\users\emerick lecomte\mes documents\github\a-life_project\viewanalysisproject_test\main.cpp(38): warning C4244: 'argument' : conversion de 'std::streamoff' en 'int', perte possible de données
+  ViewAnalysisProject_Test.vcxproj -> D:\Users\Emerick Lecomte\Mes documents\GitHub\A-Life_Project\A-Life\Assets\Plugins\ViewAnalysisProject_Test.exe
+  ViewAnalysisProject_Test.vcxproj -> D:\Users\Emerick Lecomte\Mes documents\GitHub\A-Life_Project\A-Life\Assets\Plugins\ViewAnalysisProject_Test.pdb (Partial PDB)

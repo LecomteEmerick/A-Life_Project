@@ -18,7 +18,7 @@ public class InstanciateTreeScript : MonoBehaviour {
         {
             for (int num = -Number / 2; num < Number / 2; num++)
             {
-                GameObject it = (GameObject)Instantiate(Tree, new Vector3(num, 0.0f, 0.0f), Quaternion.identity);
+                GameObject it = (GameObject)Instantiate(Tree, new Vector3(num*4, 0.0f, 0.0f), Quaternion.identity);
                 //it.GetComponent<TreeInfosClass>().TreeGrowTimeSecond = Random.Range(3, 10);
                 it.GetComponent<TreeScript>().InitializeTree();
             }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class TreeInfosClass : MonoBehaviour {
 
     public string TreeName;
-    public GameObject GameObjectInstance;
+    public GameObject TreeInstance;
 
     //Growth infos
     public Vector3 TreeMinSize = new Vector3(1.0f, 1.0f, 1.0f);
@@ -12,8 +12,8 @@ public class TreeInfosClass : MonoBehaviour {
     public int TreeGrowTimeSecond;
 
     //Fruit infos
-    public List<GameObject> FruitAttach;
-    public FruitClass Fruit;
+    public List<AnchorClass> FruitAttach;
+    public GameObject Fruit;
 
     //Life Infos
     public bool IsAlive = true;
