@@ -84,7 +84,7 @@ NavMeshSettings:
     minRegionArea: 2
     cellSize: 0.16666667
     manualCellSize: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: fbaa2b3f4ba1136439f3f4716697709b, type: 2}
 --- !u!114 &100092140 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11457274, guid: 1f42977daf93fcd4cb3917f6c5656b93,
@@ -752,7 +752,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1099510267
 MeshRenderer:
@@ -1379,6 +1379,10 @@ Prefab:
     - target: {fileID: 481492, guid: ae28cb74665a58c43a4da00735e76375, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489264, guid: ae28cb74665a58c43a4da00735e76375, type: 2}
+      propertyPath: isDebug
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae28cb74665a58c43a4da00735e76375, type: 2}

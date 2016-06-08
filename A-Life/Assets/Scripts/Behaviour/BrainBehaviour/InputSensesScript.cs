@@ -3,7 +3,7 @@ using System.Collections;
 
 public class InputSensesScript : CreatureScriptBehaviour
 {
-
+    public bool isDebug = false;
     private BrainClass Brain;
 
     public override void Initialize()
@@ -58,26 +58,31 @@ public class InputSensesScript : CreatureScriptBehaviour
 
     private void TreatHearingInfos(HearInfosClass hear,Vector3 Position)
     {
-        Debug.Log(hear.printInfos());
+        if(isDebug)
+            Debug.Log(hear.printInfos());
     }
 
     private void TreatSmellingInfos(SmellInfosClass smell, Vector3 Position)
     {
-        Debug.Log("Smell infos receive on brain.");
+        if (isDebug)
+            Debug.Log("Smell infos receive on brain.");
     }
 
     private void TreatTastingInfos(TasteInfosClass taste)
     {
-        Debug.Log("Taste infos receive on brain.");
+        if (isDebug)
+            Debug.Log("Taste infos receive on brain.");
     }
 
     private void TreatTouchingInfos(TouchInfosClass touch)
     {
-        Debug.Log("Touch infos receive.");
+        if (isDebug)
+            Debug.Log("Touch infos receive.");
     }
 
     private void TreatViewingInfos(ViewInfosClass view, Vector3 Position)
     {
-        Debug.Log("View infos receive.");
+        if (isDebug)
+            Debug.Log("View infos receive.");
     }
 }

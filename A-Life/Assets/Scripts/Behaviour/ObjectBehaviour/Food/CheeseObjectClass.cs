@@ -10,7 +10,7 @@ public class CheeseObjectClass : ObjectClass {
     public override void Initialize()
     {
         smellDispatcher.Initialize();
-        smellInfos = new SmellInfosClass(15.0f, GameData.MoleculesBankInstance.GetChemicalComponent(MoleculesBankManager.ChemicalFormula.ButyricAcid));
+        smellInfos = new SmellInfosClass(5.0f, GameData.MoleculesBankInstance.GetChemicalComponent(MoleculesBankManager.ChemicalFormula.ButyricAcid));
         smellDispatcher.EmitteContinueOdour(smellInfos);
     }
 
