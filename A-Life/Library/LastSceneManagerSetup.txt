@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/DayTestScene.unity
+- path: Assets/Scenes/GoodIslandScene.unity
   isLoaded: 1
   isActive: 1

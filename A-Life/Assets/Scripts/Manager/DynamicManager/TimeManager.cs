@@ -60,7 +60,7 @@ public class TimeManager : MonoBehaviour {
     void Start()
     {
 
-        Application.runInBackground = true;
+        //Application.runInBackground = true;
         InGameSecondToLifeDay = 86400 / DayTimeValue;
 
         blendStep = DayTimeValue / NumberOfCycles;
@@ -80,6 +80,8 @@ public class TimeManager : MonoBehaviour {
 
         CurrentTime = (CurrentTime + Time.deltaTime) % DayTimeValue;
         currentBlend += Time.deltaTime / blendStep;
+
+        //Sun.intensity = CurrentTime / (DayTimeValue/2);
 
         if (currentBlend >= 1.0f)
         {
