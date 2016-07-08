@@ -15,10 +15,18 @@ public class GameDataHandler : MonoBehaviour {
     [SerializeField]
     private MoleculesBankManager moleculesBankManager;
 
+    [SerializeField]
+    private PlayerClass playerClass;
+
+    [SerializeField]
+    private Camera playerCamera;
+
     public void Initialize () {
         GameData.EnvironnementManagerInstance = this.envrironnementManager;
         GameData.CreatureManagerInstance = this.creatureManager;
         GameData.SoundBankInstance = this.soundBankManager;
         GameData.MoleculesBankInstance = this.moleculesBankManager;
+        GameData.PlayerInstance = this.playerClass;
+        GameData.ActiveCamera = this.playerCamera;
     }
 }

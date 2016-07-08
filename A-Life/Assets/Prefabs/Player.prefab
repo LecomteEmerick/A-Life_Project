@@ -12,7 +12,7 @@ GameObject:
   - 124: {fileID: 12484762}
   - 92: {fileID: 9226610}
   - 81: {fileID: 8187888}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: MainCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428564}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,8 @@ GameObject:
   - 114: {fileID: 11476090}
   - 114: {fileID: 11452586}
   - 54: {fileID: 5476858}
-  m_Layer: 0
+  - 114: {fileID: 11458714}
+  m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,12 +205,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 10
-  RotationSpeed: 50
+  RotationSpeed: 100
   PlayerTransform: {fileID: 476154}
   PlayerRigidBody: {fileID: 5476858}
-  JumpForce: 500
+  JumpForce: 50
   Pivot_Transform: {fileID: 428564}
   PlayerCamera: {fileID: 2067534}
+  PlayerMovementScript: {fileID: 11476090}
+  PlayerActionManager: {fileID: 11458714}
+--- !u!114 &11458714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44329610f25eb4a4e9161b1db1698168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionButtonText: {fileID: 0}
+  ButtonAnimator: {fileID: 0}
 --- !u!114 &11476090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,7 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40815c6377da4bd4991e31379d205012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasControl: 1
   playerInfos: {fileID: 11452586}
+  TerrainLayerNumber: 9
 --- !u!124 &12484762
 Behaviour:
   m_ObjectHideFlags: 1

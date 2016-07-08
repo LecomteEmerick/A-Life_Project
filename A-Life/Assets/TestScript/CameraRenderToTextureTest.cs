@@ -101,7 +101,7 @@ public class CameraRenderToTextureTest : MonoBehaviour {
 
     }
 
-    int fileIndex = 0;
+    //int fileIndex = 0;
     void SendToDll()
     {
 

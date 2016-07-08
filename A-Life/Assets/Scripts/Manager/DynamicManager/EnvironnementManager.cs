@@ -4,49 +4,56 @@ using System.Collections.Generic;
 
 public class EnvironnementManager : MonoBehaviour {
 
-    public List<ObjectClass> SceneObject;
-    public List<ObjectClass> SceneFood;
+    public List<PoolledObjectClass> PooledObject;
 
-    public Dictionary<Collider, ObjectClass> ObjectList;
-    public Dictionary<Collider, ObjectClass> FoodList;
+    public Dictionary<Collider, PoolledObjectClass> ObjectListByCollider;
+    public Dictionary<GameData.PoolledObjectType, List<PoolledObjectClass>> ObjectListByType;
 
     public void Initialize()
     {
-        foreach(ObjectClass obj in SceneObject)
-        {
-            obj.Initialize();
-        }
-
-        this.ObjectList = new Dictionary<Collider, ObjectClass>();
-        foreach(ObjectClass obj in SceneObject)
+        this.ObjectListByCollider = new Dictionary<Collider, PoolledObjectClass>();
+        this.ObjectListByType = new Dictionary<GameData.PoolledObjectType, List<PoolledObjectClass>>();
+        foreach (PoolledObjectClass food in PooledObject)
         {
             try
             {
-                this.ObjectList.Add(obj.Collider, obj);
+                this.ObjectListByCollider.Add(food.PoolledObjectCollider, food);
+                if (this.ObjectListByType.ContainsKey(food.ObjectType))
+                    this.ObjectListByType[food.ObjectType].Add(food);
+                else
+                {
+                    this.ObjectListByType.Add(food.ObjectType, new List<PoolledObjectClass>());
+                    this.ObjectListByType[food.ObjectType].Add(food);
+                }
             }
             catch
             {
-                Debug.Log("Error occured when extracting object pool scene. Check your EnvManager, an object can be placed two time : " + obj.Name);
-            }
-        }
-
-        foreach (ObjectClass food in SceneFood)
-        {
-            food.Initialize();
-        }
-
-        this.FoodList = new Dictionary<Collider, ObjectClass>();
-        foreach (ObjectClass food in SceneFood)
-        {
-            try
-            {
-                this.FoodList.Add(food.Collider, food);
-            }
-            catch
-            {
-                Debug.Log("Error occured when extracting object pool scene. Check your EnvManager, an object can be placed two time : " + food.Name);
+                Debug.Log("Error occured when extracting object pool scene. Check your EnvManager, an object can be placed two time : " + food.PoolledObectInstance.name);
             }
         }
     }
 
-}
+    public PoolledObjectClass GetObjectFromPool(GameData.PoolledObjectType type)
+    {
+        int index = 0;
+        List<PoolledObjectClass> foodList = this.ObjectListByType[type];
+        while(index < foodList.Count)
+        {
+            if(!foodList[index].PoolledObectInstance.activeSelf)
+            {
+                return foodList[index];
+            }
+            index++;
+        }
+        return null;
+    }
+
+    public List<GameData.Action> GetPossibleActionForCollider(Collider col)
+    {
+        if(this.ObjectListByCollider.ContainsKey(col))
+        {
+            return this.ObjectListByCollider[col].InteractionPossible;
+        }
+        return null;
+    }
+} 

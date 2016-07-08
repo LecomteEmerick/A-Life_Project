@@ -18,8 +18,8 @@ TagManager:
   - SoundEmitter
   - SoundReceptor
   - Object
-  - 
-  - 
+  - Player
+  - PlayerActionArea
   - 
   - 
   - 

@@ -3,19 +3,22 @@ using System.Collections;
 
 public class PlayerMoveScript : MonoBehaviour {
 
+    public bool HasControl = true;
+
     public PlayerClass playerInfos;
     public int TerrainLayerNumber = 9;
 
     private bool isJumping = false;
 
 	// Use this for initialization
-	void Start () {
-        //Cursor.visible = false;
+	public void Initialize () {
+        Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        InputHandler();
+        if(HasControl)
+            InputHandler();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -30,10 +33,6 @@ public class PlayerMoveScript : MonoBehaviour {
         cameraVectorRight.y = 0.0f;
         Vector3 cameraVectorForward = playerInfos.PlayerCamera.transform.forward;
         cameraVectorForward.y = 0.0f;
-
-        Vector3 PlayerDirection = (cameraVectorRight * Input.GetAxis("Vertical") * Time.deltaTime * playerInfos.PlayerSpeed)
-            + (cameraVectorForward * Input.GetAxis("Horizontal") * Time.deltaTime * playerInfos.PlayerSpeed);
-
 
         if (Input.GetAxis("Horizontal") != 0.0f)
         {
