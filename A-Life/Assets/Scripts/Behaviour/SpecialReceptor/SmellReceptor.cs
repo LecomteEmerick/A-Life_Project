@@ -19,14 +19,14 @@ public class SmellReceptor : MonoBehaviour {
     public void Initialize()
     {
         this.receptor = new ReceptorClass<SmellInfosClass>();
-        this.receptor.UpdateEmittorFunction = this.SmellReceptorUpdateFunction;
+        this.receptor.UpdateFunction = this.SmellReceptorUpdateFunction;
     }
 
 
 
-    void SmellReceptorUpdateFunction(SmellInfosClass infos, Vector3 EmittorPosition)
+    void SmellReceptorUpdateFunction(SmellInfosClass infos)
     {
-        BrainHandler.SensorialInformationReceiver(infos, EmittorPosition);
+        BrainHandler.SensorialInformationReceiver(infos);
     }
 
 }

@@ -18,9 +18,14 @@ public abstract class ActionClass : MonoBehaviour
 
     public int Priority;
 
+
+    public abstract void Initialize();
+
     public abstract bool CheckCanExecute();
 
     public abstract void Execute();
+
+
 
 
     public virtual bool IsFeasible { get { return this.isFeasible; } }

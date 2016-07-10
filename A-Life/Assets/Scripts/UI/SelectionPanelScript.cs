@@ -19,7 +19,7 @@ public class SelectionPanelScript : MonoBehaviour {
 
     public void Open()
     {
-        GameData.PlayerInstance.PlayerMovementScript.HasControl = false;
+        GameData.PlayerInstance.HasControl = false;
         GeneralAudioSource.clip = OpenAudioClip;
         GeneralAudioSource.Play(0);
         this.SelectionPanel.SetActive(true);
@@ -47,7 +47,7 @@ public class SelectionPanelScript : MonoBehaviour {
 
     IEnumerator DelayedOpenShopPanel()
     {
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1.05f);
         this.SelectionPanel.SetActive(false);
         ShopPanel.Open();
     }
@@ -62,6 +62,6 @@ public class SelectionPanelScript : MonoBehaviour {
     public void EndPanelTransition()
     {
         this.SelectionPanel.SetActive(false);
-        GameData.PlayerInstance.PlayerMovementScript.HasControl = true;
+        GameData.PlayerInstance.HasControl = true;
     }
 }

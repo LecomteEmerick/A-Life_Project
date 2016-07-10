@@ -5,29 +5,30 @@ public class HearInfosClass : SensorialClass
 {
     public float Volume;
 
-    private float LowFrequencyValue;
-    private float MediumFrequencyValue;
-    private float HighFrequencyValue;
+    public float Frequency;
 
     public HearInfosClass()
     {
         base.Type = SensesType.Hearing;
     }
 
-    public HearInfosClass(float Volume, float LowFrequency, float MediumFrequency, float HighFrequency)
+    public HearInfosClass( float Volume, float frequency)
     {
         this.Volume = Volume;
-        this.LowFrequencyValue = LowFrequency;
-        this.MediumFrequencyValue = MediumFrequency;
-        this.HighFrequencyValue = HighFrequency;
+        this.Frequency = frequency;
+        base.Type = SensesType.Hearing;
+    }
+
+    public HearInfosClass(HearInfosClass infosClass)
+    {
+        this.Volume = infosClass.Volume;
+        this.Frequency = infosClass.Frequency;
         base.Type = SensesType.Hearing;
     }
 
     public string printInfos()
     {
-        return "LowFrequency : " + LowFrequencyValue +
-            "MediumFrequency : " + MediumFrequencyValue +
-            "HightFrequency : " + HighFrequencyValue +
+        return "frequency : " + Frequency + 
             "Volume : " + Volume + " db";
     }
 }

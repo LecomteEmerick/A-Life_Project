@@ -19,5 +19,15 @@ public class BuyableObjectClass : MonoBehaviour {
     {
         this.Ui_TextField.text = ObjectName;
         this.Ui_ImageField.sprite = ObjectImage;
+        if(GameData.EnvironnementManagerInstance.HasObjectOnPool(ObjectType))
+        {
+            this.Ui_Button_Text.text = "Acheter";
+            this.Ui_Button.interactable = true;
+        }else
+        {
+            this.Ui_Button_Text.text = "Rupture";
+            this.Ui_Button.interactable = false;
+        }
+
     }
 }

@@ -10,14 +10,16 @@ public class SmellEmitter : MonoBehaviour {
     public void Initialize()
     {
         this.ContinusSmell = new List<SmellInfosClass>();
+        InvokeRepeating("SendToBrain", GameData.SensesStartDelay, GameData.SensesUpdateDelay);
     }
 
     private void EmittePonctualOdour(SmellInfosClass smell)
     {
         //CARE MEMORY USAGE (THREAD?)
+        smell.EmitterPosition = ObjectTransform.position;
         List<CreatureClass> creatureImpacted = GameData.CreatureManagerInstance.SphereCastCreature(ObjectTransform.position, smell.Power);
         foreach (CreatureClass creature in creatureImpacted)
-            creature.SmellReceptor.Receptor.Reception(smell, ObjectTransform.position);
+            creature.SmellReceptor.Receptor.Reception(smell);
     }
 
     public void EmitteContinueOdour(SmellInfosClass smell)
@@ -30,7 +32,7 @@ public class SmellEmitter : MonoBehaviour {
         ContinusSmell.Remove(smell);
     }
 
-    void FixedUpdate()
+    void SendToBrain()
     {
         foreach (SmellInfosClass smell in this.ContinusSmell)
         {

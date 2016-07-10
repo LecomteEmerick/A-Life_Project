@@ -13,7 +13,8 @@ GameObject:
   - 54: {fileID: 5447790}
   - 136: {fileID: 13635226}
   - 114: {fileID: 11452996}
-  m_Layer: 0
+  - 114: {fileID: 11476168}
+  m_Layer: 12
   m_Name: coconut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,8 +96,31 @@ MonoBehaviour:
   PoolledObectInstance: {fileID: 125746}
   PoolledObjectRigibody: {fileID: 5447790}
   PoolledObjectCollider: {fileID: 13635226}
-  InteractionPossible: 0000000001000000
+  InteractionPossible: 
   ObjectType: 6
+  StartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &11476168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7be454c5b0034946bddd2f410640319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growingTimeSeconds: 120
+  currentGrowthTime: 0
+  FruitMinSize: {x: 0.01, y: 0.01, z: 0.01}
+  FruitMaxSize: {x: 0.5, y: 0.5, z: 0.5}
+  FruitRigidBody: {fileID: 5447790}
+  FruitCollider: {fileID: 13635226}
+  AnchorPosition: {x: 0, y: 0, z: 0}
 --- !u!136 &13635226
 CapsuleCollider:
   m_ObjectHideFlags: 1

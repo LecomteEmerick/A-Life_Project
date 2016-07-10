@@ -6,8 +6,8 @@ public class ReceptorClass<T> where T : SensorialClass{
     public delegate void UpdateSenses(T sensorialInfos);
     public UpdateSenses UpdateFunction;
 
-    public delegate void UpdateSensesWithPosition(T sensorialInfos, Vector3 EmittorPosition);
-    public UpdateSensesWithPosition UpdateEmittorFunction;
+    //public delegate void UpdateSensesWithPosition(T sensorialInfos, Vector3 EmittorPosition);
+    //public UpdateSensesWithPosition UpdateEmittorFunction;
 
     public ReceptorClass()
     {
@@ -19,8 +19,8 @@ public class ReceptorClass<T> where T : SensorialClass{
         UpdateFunction(SensorialInfos);
     }
 
-    public void Reception(T SensorialInfos, Vector3 EmittorPosition)
-    {
-        UpdateEmittorFunction(SensorialInfos, EmittorPosition);
-    }
+    //public void Reception(T SensorialInfos, Vector3 EmittorPosition)
+    //{
+    //    UpdateEmittorFunction(SensorialInfos, EmittorPosition);
+    //}
 }

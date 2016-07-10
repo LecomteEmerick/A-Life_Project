@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409808}
+  - 114: {fileID: 11437272}
   m_Layer: 0
   m_Name: Handle (2)
   m_TagString: Untagged
@@ -23,6 +24,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473472}
+  - 114: {fileID: 11426680}
   m_Layer: 0
   m_Name: Handle (4)
   m_TagString: Untagged
@@ -57,6 +59,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 495116}
   - 64: {fileID: 6404246}
+  - 114: {fileID: 11498108}
+  - 114: {fileID: 11411646}
   m_Layer: 0
   m_Name: Tree_Asian_Shaped_04
   m_TagString: Untagged
@@ -72,6 +76,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442422}
+  - 114: {fileID: 11474296}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -87,6 +92,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484186}
+  - 114: {fileID: 11411462}
   m_Layer: 0
   m_Name: Handle (1)
   m_TagString: Untagged
@@ -102,6 +108,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429614}
+  - 114: {fileID: 11459228}
   m_Layer: 0
   m_Name: Handle (3)
   m_TagString: Untagged
@@ -264,6 +271,117 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 175c359da7ffea94a83abacaffd815a7, type: 3}
+--- !u!114 &11411462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef548f2a1723ae045ad9691b67954d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransformPosition: {fileID: 484186}
+  IsUsed: 0
+  Fruit: {fileID: 0}
+--- !u!114 &11411646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c748869faa401545ad443120e56ca25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreeInfos: {fileID: 11498108}
+  MaxTimeForFruitDetachSeconds: 10
+--- !u!114 &11426680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef548f2a1723ae045ad9691b67954d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransformPosition: {fileID: 473472}
+  IsUsed: 0
+  Fruit: {fileID: 0}
+--- !u!114 &11437272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef548f2a1723ae045ad9691b67954d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransformPosition: {fileID: 409808}
+  IsUsed: 0
+  Fruit: {fileID: 0}
+--- !u!114 &11459228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef548f2a1723ae045ad9691b67954d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransformPosition: {fileID: 429614}
+  IsUsed: 0
+  Fruit: {fileID: 0}
+--- !u!114 &11474296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef548f2a1723ae045ad9691b67954d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransformPosition: {fileID: 442422}
+  IsUsed: 0
+  Fruit: {fileID: 0}
+--- !u!114 &11498108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab5c2999b4eedc47a0ac379116d61c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreeInstance: {fileID: 150362}
+  TreeScript: {fileID: 0}
+  FruitGrowth: {fileID: 11411646}
+  TreeMinSize: {x: 0.1, y: 0.1, z: 0.1}
+  TreeMaxSize: {x: 1, y: 1, z: 1}
+  TreeGrowTimeSecond: 30
+  FruitAttach:
+  - {fileID: 11474296}
+  - {fileID: 11411462}
+  - {fileID: 11437272}
+  - {fileID: 11459228}
+  - {fileID: 11426680}
+  Fruit: 5
+  IsAlive: 1
+  MaxLifeTimeSeconds: 36000
+  LifeTimeSeconds: 0
+  isEternal: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -3,10 +3,12 @@ using System.Collections;
 
 public class PlayerMoveScript : MonoBehaviour {
 
-    public bool HasControl = true;
-
     public PlayerClass playerInfos;
     public int TerrainLayerNumber = 9;
+
+    public GameObject GroundChecker;
+
+    public Animator PlayerAnimator;
 
     private bool isJumping = false;
 
@@ -17,42 +19,76 @@ public class PlayerMoveScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(HasControl)
-            InputHandler();
+        if (playerInfos.HasControl)
+        {
+            checkGround();
+            MoveInputHandler();
+        }
+        else
+        {
+            PlayerAnimator.SetFloat("Turn", 0.0f);
+            PlayerAnimator.SetFloat("Forward", 0.0f);
+            if (isJumping)
+            {
+                playerInfos.EntityRigidBody.AddForce((Physics.gravity * 2.0f) - Physics.gravity);
+                PlayerAnimator.SetFloat("Jump", playerInfos.EntityRigidBody.velocity.y);
+            }
+        }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void checkGround()
     {
-        if (isJumping && collision.gameObject.layer == TerrainLayerNumber)
+        RaycastHit hitInfo;
+        
+        if (Physics.Raycast(GroundChecker.transform.position, Vector3.down, out hitInfo, 0.5f))
+        {
             isJumping = false;
+            PlayerAnimator.SetBool("OnGround", true);
+            PlayerAnimator.applyRootMotion = true;
+        }
+        else
+        {
+            //Debug.DrawRay(GroundChecker.transform.position, Vector3.down * 0.1f, Color.blue, 9999999);
+            isJumping = true;
+            PlayerAnimator.SetBool("OnGround", false);
+            PlayerAnimator.applyRootMotion = false;
+        }
     }
 
-    void InputHandler()
+    void MoveInputHandler()
     {
-        Vector3 cameraVectorRight = playerInfos.PlayerCamera.transform.right;
-        cameraVectorRight.y = 0.0f;
-        Vector3 cameraVectorForward = playerInfos.PlayerCamera.transform.forward;
-        cameraVectorForward.y = 0.0f;
-
-        if (Input.GetAxis("Horizontal") != 0.0f)
-        {
-            playerInfos.PlayerTransform.position += cameraVectorRight.normalized * Input.GetAxis("Horizontal") * Time.deltaTime * playerInfos.PlayerSpeed;
-        }
-
-        if (Input.GetAxis("Vertical") != 0.0f)
-        {
-            playerInfos.PlayerTransform.position += cameraVectorForward.normalized * Input.GetAxis("Vertical") * Time.deltaTime * playerInfos.PlayerSpeed;
-        }
 
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
             isJumping = true;
-            playerInfos.PlayerRigidBody.AddForce( new Vector3(0.0f,10.0f,0.0f) * playerInfos.JumpForce);
+            PlayerAnimator.SetFloat("Forward", 0.0f);
+            PlayerAnimator.SetBool("OnGround", false);
+            playerInfos.EntityRigidBody.velocity = new Vector3(0.0f, playerInfos.JumpForce, 0.0f);
+            PlayerAnimator.applyRootMotion = false;
+            PlayerAnimator.SetFloat("Jump", playerInfos.EntityRigidBody.velocity.y);
+        }
+        else if (isJumping)
+        {
+            PlayerAnimator.SetFloat("Forward", 0.0f);
+            playerInfos.EntityTransform.position += playerInfos.EntityTransform.forward * Input.GetAxis("Vertical") * Time.deltaTime * (playerInfos.PlayerSpeed);
+            playerInfos.EntityRigidBody.AddForce((Physics.gravity * 2.0f) - Physics.gravity);
+            PlayerAnimator.SetFloat("Jump", playerInfos.EntityRigidBody.velocity.y);
+        }
+
+        if(!isJumping)
+        {
+            PlayerAnimator.SetFloat("Turn", Input.GetAxis("Horizontal"));
+            PlayerAnimator.SetFloat("Forward", Input.GetAxis("Vertical") * playerInfos.PlayerSpeed);
+        }
+
+        if(Input.GetAxis("Vertical") < 0.0f)
+        {
+            playerInfos.EntityTransform.position += playerInfos.EntityTransform.forward * Input.GetAxis("Vertical") * Time.deltaTime * playerInfos.PlayerSpeed;
         }
 
         if (Input.GetAxis("Camera X") != 0.0f)
         {
-            playerInfos.Pivot_Transform.eulerAngles += Vector3.up * Input.GetAxis("Camera X") * Time.deltaTime * playerInfos.RotationSpeed;
+            playerInfos.EntityTransform.eulerAngles += Vector3.up * Input.GetAxis("Camera X") * Time.deltaTime * playerInfos.RotationSpeed;
         }
 
         if (Input.GetAxis("Camera Y") != 0.0f)

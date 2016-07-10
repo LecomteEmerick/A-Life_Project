@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2313058}
   - 54: {fileID: 5482552}
   - 114: {fileID: 11457710}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PalmSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,8 +95,13 @@ MonoBehaviour:
   PoolledObectInstance: {fileID: 172024}
   PoolledObjectRigibody: {fileID: 5482552}
   PoolledObjectCollider: {fileID: 13651576}
-  InteractionPossible: 000000000100000003000000
+  InteractionPossible: 01000000
   ObjectType: 3
+  StartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!136 &13651576
 CapsuleCollider:
   m_ObjectHideFlags: 1

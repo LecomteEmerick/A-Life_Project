@@ -3,8 +3,6 @@ using System.Collections;
 
 public class FruitClass : MonoBehaviour {
 
-    public string Name;
-
     //Growth infos
     public int growingTimeSeconds;
     public int currentGrowthTime;
@@ -15,6 +13,7 @@ public class FruitClass : MonoBehaviour {
 
     //Logical
     public Rigidbody FruitRigidBody;
+    public Collider FruitCollider;
 
 
     public Vector3 AnchorPosition;

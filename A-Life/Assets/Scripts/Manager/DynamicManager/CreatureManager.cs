@@ -8,7 +8,10 @@ public class CreatureManager : MonoBehaviour {
 
     public Dictionary<Collider, CreatureClass> CreatureList;
 
+    public GameObject MarkerInterest;
+    public GameObject MarkerCreature;
 
+    private int index = 0;
 	// Use this for initialization
 	public void Intialize()
     {
@@ -22,7 +25,7 @@ public class CreatureManager : MonoBehaviour {
         {
             try
             { 
-                this.CreatureList.Add(creatureInfos.Collider, creatureInfos);
+                this.CreatureList.Add(creatureInfos.EntityCollider, creatureInfos);
             }
             catch
             {
@@ -30,6 +33,19 @@ public class CreatureManager : MonoBehaviour {
             }
         }
 	}
+
+    public void RegisterCreature(CreatureClass creatureInfos)
+    {
+        SceneCreatureList.Add(creatureInfos);
+        CreatureList.Add(creatureInfos.EntityCollider, creatureInfos);
+    }
+
+    public CreatureClass GetCreatureByCollider(Collider col)
+    {
+        if (CreatureList.ContainsKey(col))
+            return CreatureList[col];
+        return null;
+    }
 
     public List<CreatureClass> SphereCastCreature(Vector3 Position, float Radius)
     {
@@ -40,5 +56,24 @@ public class CreatureManager : MonoBehaviour {
                 creatureCastList.Add(creatureInfos);
         }
         return creatureCastList;
+    }
+
+    void Update()
+    {
+        if (CreatureList.Count > 0)
+        {
+            if (Input.GetButtonDown("Next Creature"))
+            {
+                index = (index + 1) % SceneCreatureList.Count;
+                MarkerCreature.transform.parent = SceneCreatureList[index].EntityTransform;
+                MarkerCreature.transform.localPosition = new Vector3(0.0f,1.0f,0.0f);
+            }
+            if (Input.GetButtonDown("Previous Creature"))
+            {
+                index = (index - 1) % SceneCreatureList.Count;
+                MarkerCreature.transform.parent = SceneCreatureList[index].EntityTransform;
+                MarkerCreature.transform.localPosition = new Vector3(0.0f, 1.0f, 0.0f);
+            }
+        }
     }
 }

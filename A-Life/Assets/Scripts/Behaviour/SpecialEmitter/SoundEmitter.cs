@@ -16,9 +16,10 @@ public class SoundEmitter : MonoBehaviour {
     public void EmittePonctualSound(HearInfosClass sound)
     {
         //CARE MEMORY USAGE (THREAD?)
+        sound.EmitterPosition = ObjectTransform.position;
         List<CreatureClass> CreatureData = GameData.CreatureManagerInstance.SphereCastCreature(ObjectTransform.position, sound.Volume);
         foreach (CreatureClass creature in CreatureData)
-            creature.SoundReceptor.Receptor.Reception(sound, ObjectTransform.position);
+            creature.SoundReceptor.Receptor.Reception(sound);
     }
 
     public void EmitteContinueSound(HearInfosClass sound)

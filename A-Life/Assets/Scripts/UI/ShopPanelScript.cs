@@ -43,13 +43,13 @@ public class ShopPanelScript : MonoBehaviour {
         GeneralAudioSource.clip = buyAudioClip;
         GeneralAudioSource.Play();
 
-        Vector3 direction = new Vector3(Random.Range(-100.0f,100.0f), 100.0f, Random.Range(-100.0f, 100.0f));
+        Vector3 direction = new Vector3(Random.Range(-500.0f,500.0f), 500.0f, Random.Range(-500.0f, 0.0f));
 
         PoolledObjectClass obj = GameData.EnvironnementManagerInstance.GetObjectFromPool(objectClass.ObjectType);
 
         if (obj != null)
         {
-            obj.Activate(GameData.PlayerInstance.PlayerTransform.position + (Vector3.up * 3));
+            obj.Activate(GameData.PlayerInstance.EntityTransform.position + (Vector3.up * 10));
             obj.PoolledObjectRigibody.AddForce(direction);
         }
         else

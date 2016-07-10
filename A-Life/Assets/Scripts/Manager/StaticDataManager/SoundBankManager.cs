@@ -11,14 +11,14 @@ public class SoundBankManager : MonoBehaviour {
     public void Initiliaze()
     {
         SoundBank = new Dictionary<string, HearInfosClass>(SoundBankCapacity);
-        SoundBank.Add(SoundName.Bounce.ToString(), new HearInfosClass(15.0f, 0.0f, 0.25f, 0.75f));
+        SoundBank.Add(SoundName.Bounce.ToString(), new HearInfosClass(15.0f, 1000.0f));
     }
 
     public HearInfosClass GetSound(SoundName soundName)
     {
         string sound = soundName.ToString();
         if (SoundBank.ContainsKey(sound))
-            return SoundBank[sound];
+            return new HearInfosClass(SoundBank[sound]);
         Debug.LogError("Sound " + soundName + " not found on sound bank.");
         return null;
     }

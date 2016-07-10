@@ -19,14 +19,14 @@ public class SoundReceptor : MonoBehaviour {
     public void Initialize()
     {
         this.receptor = new ReceptorClass<HearInfosClass>();
-        this.receptor.UpdateEmittorFunction = this.SoundReceptorUpdateFunction;
+        this.receptor.UpdateFunction = this.SoundReceptorUpdateFunction;
     }
 
 
 
-    void SoundReceptorUpdateFunction(HearInfosClass infos, Vector3 EmittorPosition)
+    void SoundReceptorUpdateFunction(HearInfosClass infos)
     {
-        BrainHandler.SensorialInformationReceiver(infos, EmittorPosition);
+        BrainHandler.SensorialInformationReceiver(infos);
     }
 
 }

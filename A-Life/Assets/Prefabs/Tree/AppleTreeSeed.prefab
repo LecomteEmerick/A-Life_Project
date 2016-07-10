@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2357084}
   - 54: {fileID: 5457254}
   - 114: {fileID: 11490486}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AppleTreeSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,8 +95,13 @@ MonoBehaviour:
   PoolledObectInstance: {fileID: 158216}
   PoolledObjectRigibody: {fileID: 5457254}
   PoolledObjectCollider: {fileID: 13646946}
-  InteractionPossible: 000000000100000003000000
+  InteractionPossible: 01000000
   ObjectType: 1
+  StartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!136 &13646946
 CapsuleCollider:
   m_ObjectHideFlags: 1
