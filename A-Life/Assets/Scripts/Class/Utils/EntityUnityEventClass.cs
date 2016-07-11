@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using System;
 
-[System.Serializable]
+[Serializable]
 public class CreatureUnityEventClass : UnityEvent<CreatureClass> {
 }

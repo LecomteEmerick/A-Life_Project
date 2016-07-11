@@ -43,13 +43,16 @@ GameObject:
   - 64: {fileID: 6434148}
   - 114: {fileID: 11448728}
   - 114: {fileID: 11457048}
+  - 114: {fileID: 11475644}
+  - 114: {fileID: 11478206}
+  - 114: {fileID: 11465876}
   m_Layer: 0
   m_Name: Tree_Asian_Shaped_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &133120
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,11 +270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TreeInstance: {fileID: 120980}
-  TreeScript: {fileID: 0}
+  TreeScript: {fileID: 11465876}
   FruitGrowth: {fileID: 11457048}
-  TreeMinSize: {x: 0.1, y: 0.1, z: 0.1}
+  TreeMinSize: {x: 0.01, y: 0.01, z: 0.01}
   TreeMaxSize: {x: 1, y: 1, z: 1}
-  TreeGrowTimeSecond: 30
+  TreeGrowTimeSecond: 33
   FruitAttach:
   - {fileID: 11464758}
   - {fileID: 11453108}
@@ -323,6 +326,74 @@ MonoBehaviour:
   TransformPosition: {fileID: 478686}
   IsUsed: 0
   Fruit: {fileID: 0}
+--- !u!114 &11465876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf07937d02723e4e8167f2873cc94c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreeInfos: {fileID: 11448728}
+  FruitGrowthScript: {fileID: 11457048}
+  Emitter: {fileID: 11475644}
+--- !u!114 &11475644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c8004f4abe0a942adb7ced4b7c3e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectTransform: {fileID: 449686}
+--- !u!114 &11478206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8661ab0488b12d34f9bb721a36607b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoolledObectInstance: {fileID: 120980}
+  PoolledObjectRigibody: {fileID: 0}
+  PoolledObjectCollider: {fileID: 6434148}
+  InteractionPossible: 
+  ObjectType: 2
+  StartEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11465876}
+        m_MethodName: InitializeTree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  PlayerInteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  CreatureInteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CreatureUnityEventClass, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &11498252
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -16,7 +16,7 @@ public class MoleculesBankManager : MonoBehaviour {
 
     public enum ChemicalFormula
     {
-        CitricAcid, ButyricAcid
+        CitricAcid, ButyricAcid, ChlorogenicAcid, CaprylicAcid
     }
 
     private Dictionary<string, MoleculesClass> MoleculesList;
@@ -38,15 +38,29 @@ public class MoleculesBankManager : MonoBehaviour {
         this.MoleculesList.Add("O", new MoleculesClass(MoleculesSymbols.O, 1));
         this.MoleculesList.Add("H", new MoleculesClass(MoleculesSymbols.O, 1));
 
+        this.MoleculesList.Add("C16", new MoleculesClass(MoleculesSymbols.C, 16));
+        this.MoleculesList.Add("H18", new MoleculesClass(MoleculesSymbols.H, 18));
+        this.MoleculesList.Add("O9", new MoleculesClass(MoleculesSymbols.O, 9));
+
+        this.MoleculesList.Add("C8", new MoleculesClass(MoleculesSymbols.C, 8));
+        this.MoleculesList.Add("H16", new MoleculesClass(MoleculesSymbols.H, 16));
+        this.MoleculesList.Add("O2", new MoleculesClass(MoleculesSymbols.O, 2));
+
         List<MoleculesClass> tmpMoleculeList = new List<MoleculesClass>();
 
         this.ChimicalComponentList = new Dictionary<ChemicalFormula, ChimicalComponentClass>(ChimicalCount);
         //Orange ?
         SetMoleculeToList("C6-H8-O7", ref tmpMoleculeList);
-        this.ChimicalComponentList.Add(ChemicalFormula.CitricAcid, new ChimicalComponentClass(ChemicalFormula.CitricAcid.ToString(), tmpMoleculeList));
+        this.ChimicalComponentList.Add(ChemicalFormula.CitricAcid, new ChimicalComponentClass(ChemicalFormula.CitricAcid.ToString(), tmpMoleculeList, new Color(1.0f, 0.66f, 0.0f )));
         //Cheese
         SetMoleculeToList("C3-H7-C-O-O-H", ref tmpMoleculeList);
-        this.ChimicalComponentList.Add(ChemicalFormula.ButyricAcid, new ChimicalComponentClass(ChemicalFormula.ButyricAcid.ToString(), tmpMoleculeList));
+        this.ChimicalComponentList.Add(ChemicalFormula.ButyricAcid, new ChimicalComponentClass(ChemicalFormula.ButyricAcid.ToString(), tmpMoleculeList, Color.yellow));
+        //Apple
+        SetMoleculeToList("C16-H18-O9", ref tmpMoleculeList);
+        this.ChimicalComponentList.Add(ChemicalFormula.ChlorogenicAcid, new ChimicalComponentClass(ChemicalFormula.ChlorogenicAcid.ToString(), tmpMoleculeList, Color.red));
+        //Coconuts
+        SetMoleculeToList("C8-H16-O2", ref tmpMoleculeList);
+        this.ChimicalComponentList.Add(ChemicalFormula.CaprylicAcid, new ChimicalComponentClass(ChemicalFormula.CaprylicAcid.ToString(), tmpMoleculeList, Color.green));
     }
 
     private void SetMoleculeToList(string MoleculeList, ref List<MoleculesClass> tmpMoleculeList)

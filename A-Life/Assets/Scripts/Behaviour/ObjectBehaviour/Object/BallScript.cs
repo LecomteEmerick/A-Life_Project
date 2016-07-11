@@ -38,5 +38,6 @@ public class BallScript : MonoBehaviour {
     public void PlayBall(CreatureClass entity)
     {
         ShootBall(entity.transform.forward);
+        entity.CreatureBrain.ChimicalInfos.ChangeValueForChimical(GameData.BrainChimical.Sérotonine, -2.0f);
     }
 }

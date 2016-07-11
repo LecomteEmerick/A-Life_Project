@@ -7,18 +7,20 @@ public class IdentifiateObject
     public Vector3 PossibleArea;
     public List<HearInfosClass> HearedInfos;
     public List<SmellInfosClass> SmelledInfos;
-    public List<ViewInfosClass> ViewedInfos;
+    public ViewInfosClass ViewedInfos;
+
+    public void SetAdditionnalInterest(int value) { this.AdditionnalInterest = value; }
+    private int AdditionnalInterest = 0;
 
     public IdentifiateObject()
     {
         this.HearedInfos = new List<HearInfosClass>();
         this.SmelledInfos = new List<SmellInfosClass>();
-        this.ViewedInfos = new List<ViewInfosClass>();
     }
 
     public int GetInterestRate()
     {
-        return this.HearedInfos.Count + this.SmelledInfos.Count + this.ViewedInfos.Count;
+        return this.HearedInfos.Count + this.SmelledInfos.Count + (this.ViewedInfos != null ? 1 : 0) * 5 + this.AdditionnalInterest;
     }
 }
 
@@ -136,13 +138,13 @@ public class InputSensesScript : CreatureScriptBehaviour
             float distance = FindClosestObject(viewInfos.EmitterPosition, out tmp, identifiateObject);
             if (distance < VectorRadiusAcceptable && tmp != null)
             {
-                tmp.ViewedInfos.Add(viewInfos);
+                tmp.ViewedInfos = viewInfos;
             }
             else
             {
                 tmp = new IdentifiateObject();
                 tmp.PossibleArea = viewInfos.EmitterPosition;
-                tmp.ViewedInfos.Add(viewInfos);
+                tmp.ViewedInfos = viewInfos;
                 identifiateObject.Add(tmp);
             }
         }

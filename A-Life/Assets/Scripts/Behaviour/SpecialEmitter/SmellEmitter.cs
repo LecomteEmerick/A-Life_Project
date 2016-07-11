@@ -4,9 +4,10 @@ using System.Collections.Generic;
 public class SmellEmitter : MonoBehaviour {
 
     public Transform ObjectTransform;
+    public ParticleSystem OdorVisualEmitter;
 
     private List<SmellInfosClass> ContinusSmell;
-
+    
     public void Initialize()
     {
         this.ContinusSmell = new List<SmellInfosClass>();
@@ -36,6 +37,11 @@ public class SmellEmitter : MonoBehaviour {
     {
         foreach (SmellInfosClass smell in this.ContinusSmell)
         {
+            if (GameData.ShowVisualDebug)
+            {
+                OdorVisualEmitter.startColor = smell.ChemicalComponent.MoleculesVisualColor;
+                OdorVisualEmitter.Emit(OdorVisualEmitter.maxParticles);
+            }
             EmittePonctualOdour(smell);
         }
     }

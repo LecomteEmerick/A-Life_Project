@@ -19,6 +19,7 @@ GameObject:
   - 114: {fileID: 11406292}
   - 114: {fileID: 11400304}
   - 65: {fileID: 6573068}
+  - 114: {fileID: 11498178}
   m_Layer: 8
   m_Name: Dragon
   m_TagString: Untagged
@@ -41,6 +42,7 @@ GameObject:
   - 114: {fileID: 11470254}
   - 114: {fileID: 11490010}
   - 114: {fileID: 11466170}
+  - 114: {fileID: 11495126}
   m_Layer: 15
   m_Name: BrainChimical
   m_TagString: Untagged
@@ -389,6 +391,22 @@ GameObject:
   - 4: {fileID: 472870}
   m_Layer: 8
   m_Name: B_25
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &138500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 421898}
+  - 82: {fileID: 8268356}
+  m_Layer: 8
+  m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1020,6 +1038,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 442788}
   m_RootOrder: 0
+--- !u!4 &421898
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138500}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 471170}
+  m_RootOrder: 5
 --- !u!4 &423226
 Transform:
   m_ObjectHideFlags: 1
@@ -1377,6 +1408,7 @@ Transform:
   - {fileID: 420170}
   - {fileID: 491724}
   - {fileID: 444048}
+  - {fileID: 421898}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &472286
@@ -1654,6 +1686,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &8268356
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138500}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!111 &11144786
 Animation:
   m_ObjectHideFlags: 1
@@ -1754,15 +1860,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c775dfef58e194c8323e19a9d32ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerDisplayName: Douleur
   ChimicalType: 1
   Value: 0
   ProductionRateVariable: 0
-  EliminationRateVariable: 1
+  EliminationRateVariable: 0.1
   UpperDangerValue: 10
   MinValue: 0
   EvaluationFunction: {fileID: 11470254}
   ImpactedChimical:
   - ChimicalInfos: {fileID: 11469380}
+    RawValueConnexeValue: 1
     ProductionConnexeValue: 2
     EliminationConnexeValue: 0
 --- !u!114 &11424574
@@ -1833,6 +1941,7 @@ MonoBehaviour:
   - {fileID: 11461834}
   - {fileID: 11411232}
   - {fileID: 11466170}
+  - {fileID: 11495126}
 --- !u!114 &11445650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1848,7 +1957,7 @@ MonoBehaviour:
   EntityRigidBody: {fileID: 0}
   EntityCollider: {fileID: 6573068}
   EntityType: 1
-  CreatureName: 
+  CreatureName: Bob
   CreatureNavMesh: {fileID: 19592622}
   CreatureAnimator: {fileID: 11144786}
   CreatureClipAnimation:
@@ -1865,9 +1974,23 @@ MonoBehaviour:
   ViewReceptor: {fileID: 11448384}
   OnHitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11445650}
+        m_MethodName: OnHitAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  AudioSource: {fileID: 8268356}
+  PainClip: {fileID: 8300000, guid: 56084bb1d7565cf48980e3885c77cfd7, type: 3}
+  SighClip: {fileID: 8300000, guid: 82b864f828ea06e4d8c3298677d1c14a, type: 3}
 --- !u!114 &11448384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1892,13 +2015,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c775dfef58e194c8323e19a9d32ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerDisplayName: Faim
   ChimicalType: 2
-  Value: 5
-  ProductionRateVariable: 0
-  EliminationRateVariable: 1
+  Value: 0
+  ProductionRateVariable: 0.01
+  EliminationRateVariable: 0
   UpperDangerValue: 10
   MinValue: 0
-  EvaluationFunction: {fileID: 11490010}
+  EvaluationFunction: {fileID: 11470254}
   ImpactedChimical: []
 --- !u!114 &11464526
 MonoBehaviour:
@@ -1923,15 +2047,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c775dfef58e194c8323e19a9d32ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerDisplayName: Ennui
   ChimicalType: 3
   Value: 0
-  ProductionRateVariable: 0
-  EliminationRateVariable: 1
+  ProductionRateVariable: 0.1
+  EliminationRateVariable: 0
   UpperDangerValue: 10
   MinValue: 0
   EvaluationFunction: {fileID: 11470254}
   ImpactedChimical:
   - ChimicalInfos: {fileID: 11469380}
+    RawValueConnexeValue: 0.5
     ProductionConnexeValue: 1
     EliminationConnexeValue: 0
 --- !u!114 &11468876
@@ -1958,6 +2084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c775dfef58e194c8323e19a9d32ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerDisplayName: Stress
   ChimicalType: 0
   Value: 0
   ProductionRateVariable: 0
@@ -1967,6 +2094,7 @@ MonoBehaviour:
   EvaluationFunction: {fileID: 11470254}
   ImpactedChimical:
   - ChimicalInfos: {fileID: 11461834}
+    RawValueConnexeValue: 0
     ProductionConnexeValue: 0.5
     EliminationConnexeValue: -0.5
 --- !u!114 &11470254
@@ -1991,9 +2119,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82cd574224c264a4c909ac471e86851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CreatureInfos: {fileID: 11445650}
   InputSenses: {fileID: 11424574}
   MemoryInfos: {fileID: 11489318}
   ChimicalInfos: {fileID: 11445564}
+  ObjectOfInterestChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &11480964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2028,6 +2162,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b6ffe1fe1a98044bc5957f1c7ae5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11495126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c775dfef58e194c8323e19a9d32ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerDisplayName: Energie
+  ChimicalType: 6
+  Value: 10
+  ProductionRateVariable: 0
+  EliminationRateVariable: 0.01
+  UpperDangerValue: 10
+  MinValue: 0
+  EvaluationFunction: {fileID: 0}
+  ImpactedChimical: []
+--- !u!114 &11498178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8661ab0488b12d34f9bb721a36607b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoolledObectInstance: {fileID: 0}
+  PoolledObjectRigibody: {fileID: 0}
+  PoolledObjectCollider: {fileID: 0}
+  InteractionPossible: 
+  ObjectType: 7
+  StartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  PlayerInteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  CreatureInteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CreatureUnityEventClass, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!137 &13702490
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

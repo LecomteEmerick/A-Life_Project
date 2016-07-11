@@ -183,11 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8247d071acfcfc34ab68ddf96c1135d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectImage: {fileID: 0}
-  ObjectName: Coucou
-  Prefab: {fileID: 0}
+  ObjectImage: {fileID: 21300000, guid: 1a26017dca9e8544480525e04b73eaf4, type: 3}
+  ObjectName: Oeuf de dragon
+  ObjectType: 0
   Ui_TextField: {fileID: 11420408}
   Ui_ImageField: {fileID: 11426408}
+  Ui_Button: {fileID: 11494442}
+  Ui_Button_Text: {fileID: 11494114}
 --- !u!114 &11494114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,10 +315,10 @@ RectTransform:
   - {fileID: 22461834}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0.85300004}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000076293945, y: -4}
-  m_SizeDelta: {x: -0.000015258789, y: 0.0000076293945}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -48}
+  m_SizeDelta: {x: 1048, y: 88.00001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22461834
 RectTransform:

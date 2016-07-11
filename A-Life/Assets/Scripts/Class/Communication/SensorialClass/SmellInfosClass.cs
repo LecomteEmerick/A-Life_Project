@@ -5,7 +5,6 @@ public class SmellInfosClass : SensorialClass {
 
     public float Power;
     public ChimicalComponentClass ChemicalComponent;
-
     public SmellInfosClass()
     {
         base.Type = SensesType.Smell;

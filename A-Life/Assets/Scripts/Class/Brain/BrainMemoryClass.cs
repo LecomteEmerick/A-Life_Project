@@ -60,8 +60,13 @@ public class BrainMemoryClass : MonoBehaviour {
             {
                 this.InteractionModifierByChimical.Add(chimicalInfos.Chimical, new List<ObjectModifier>());
             }
-            //this.InteractionModifierByChimical[chimicalInfos.Chimical].Add(  ,new ObjectModifier(obj, chimicalInfos.ProductionModifer, chimicalInfos.EliminationModifier, chimicalInfos.RawValueModifier));
+            this.InteractionModifierByChimical[chimicalInfos.Chimical].Add( new ObjectModifier(obj, chimicalInfos.ProductionModifer, chimicalInfos.EliminationModifier, chimicalInfos.RawValueModifier));
         }
+    }
+
+    public void MemorizeObject(GameData.PoolledObjectType obj, List<HearInfosClass> heared, List<SmellInfosClass> smelled, ViewInfosClass viewed)
+    {
+
     }
 
     public void GetBestObjectForChimical(GameData.BrainChimical Chimical)

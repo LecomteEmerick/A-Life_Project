@@ -26,6 +26,10 @@ public class CreatureClass : EntityClass
 
     public UnityEvent OnHitEvent;
 
+    public AudioSource AudioSource;
+    public AudioClip PainClip;
+    public AudioClip SighClip;
+
     //Use this for initialize internal script
     public void Initialize()
     {
@@ -51,4 +55,22 @@ public class CreatureClass : EntityClass
         //}
     }
 
+    public string GetCreatureName()
+    {
+        return this.CreatureName == "" ? this.gameObject.name : this.CreatureName;
+    }
+
+    public void OnHitAction()
+    {
+        CreatureBrain.ChimicalInfos.ChangeValueForChimical(GameData.BrainChimical.Endorphine, 1.5f);
+        this.AudioSource.clip = this.PainClip;
+        this.AudioSource.Play();
+    }
+
+    public void OnComplimentAction()
+    {
+        CreatureBrain.ChimicalInfos.ChangeValueForChimical(GameData.BrainChimical.Adrenaline, -1.5f);
+        this.AudioSource.clip = this.SighClip;
+        this.AudioSource.Play();
+    }
 }

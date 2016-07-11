@@ -26,6 +26,11 @@ public class BrainChimicalClass : MonoBehaviour {
         }
     }
 
+    public void ChangeValueForChimical(GameData.BrainChimical chimical, float value)
+    {
+        this.CreatureChimical[chimical].ChangeRawValue(value);
+    }
+
     public void ChangeProductionRate(GameData.BrainChimical chimical, float value)
     {
         this.CreatureChimical[chimical].ChangeProductionRate(value);

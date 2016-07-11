@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class CreatureManager : MonoBehaviour {
 
@@ -10,6 +11,8 @@ public class CreatureManager : MonoBehaviour {
 
     public GameObject MarkerInterest;
     public GameObject MarkerCreature;
+
+    public UnityEvent InterestCreatureChange;
 
     private int index = 0;
 	// Use this for initialization
@@ -67,13 +70,33 @@ public class CreatureManager : MonoBehaviour {
                 index = (index + 1) % SceneCreatureList.Count;
                 MarkerCreature.transform.parent = SceneCreatureList[index].EntityTransform;
                 MarkerCreature.transform.localPosition = new Vector3(0.0f,1.0f,0.0f);
+                SceneCreatureList[index].CreatureBrain.ObjectOfInterestChange.AddListener(InterestMarkerChange);
+                InterestMarkerChange();
+                if (InterestCreatureChange != null)
+                    InterestCreatureChange.Invoke();
             }
             if (Input.GetButtonDown("Previous Creature"))
             {
                 index = (index - 1) % SceneCreatureList.Count;
                 MarkerCreature.transform.parent = SceneCreatureList[index].EntityTransform;
                 MarkerCreature.transform.localPosition = new Vector3(0.0f, 1.0f, 0.0f);
+                SceneCreatureList[index].CreatureBrain.ObjectOfInterestChange.AddListener(InterestMarkerChange);
+                InterestMarkerChange();
+                if (InterestCreatureChange != null)
+                    InterestCreatureChange.Invoke();
             }
         }
+    }
+
+    public CreatureClass GetInspectedCreature()
+    {
+        if(CreatureList.Count > 0)
+            return SceneCreatureList[index];
+        return null;
+    }
+
+    public void InterestMarkerChange()
+    {
+        SceneCreatureList[index].CreatureBrain.SetInterestMarker(MarkerInterest);
     }
 }

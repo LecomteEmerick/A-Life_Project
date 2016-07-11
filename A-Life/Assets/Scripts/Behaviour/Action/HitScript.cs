@@ -7,8 +7,6 @@ public class HitScript : ActionClass
     public PlayerClass playerInfos;
     public AudioClip HitAudio;
 
-    public float punchForce;
-
     public LayerMask HittableLayer;
 
     private Collider Target;
@@ -38,7 +36,7 @@ public class HitScript : ActionClass
         playerInfos.PlayerAudioSource.Play();
 
         CreatureClass creature = GameData.CreatureManagerInstance.GetCreatureByCollider(Target);
-        creature.EntityRigidBody.AddForce((GameData.ActiveCamera.transform.forward + Vector3.up) * punchForce);
+        //creature.EntityRigidBody.AddForce((GameData.ActiveCamera.transform.forward + Vector3.up) * punchForce);
         creature.OnHitEvent.Invoke();
     }
 

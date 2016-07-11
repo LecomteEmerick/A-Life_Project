@@ -125,8 +125,11 @@ public class PlayerActionManagerScript : MonoBehaviour {
 
                         obj.PoolledObectInstance.transform.parent = Hand.HandPosition;
                         obj.PoolledObjectCollider.enabled = false;
-                        obj.PoolledObjectRigibody.useGravity = false;
-                        obj.PoolledObjectRigibody.isKinematic = true;
+                        if (obj.PoolledObjectRigibody != null)
+                        {
+                            obj.PoolledObjectRigibody.useGravity = false;
+                            obj.PoolledObjectRigibody.isKinematic = true;
+                        }
                         target.transform.localPosition = new Vector3(0.0f,0.0f,0.0f);
                         Hand.CarriedObject = obj;
                         Hand.isFull = true;
@@ -139,8 +142,11 @@ public class PlayerActionManagerScript : MonoBehaviour {
                 {
                     Hand.CarriedObject.transform.parent = null;
                     Hand.CarriedObject.PoolledObjectCollider.enabled = true;
-                    Hand.CarriedObject.PoolledObjectRigibody.useGravity = true;
-                    Hand.CarriedObject.PoolledObjectRigibody.isKinematic = false;
+                    if (Hand.CarriedObject.PoolledObjectRigibody != null)
+                    {
+                        Hand.CarriedObject.PoolledObjectRigibody.useGravity = true;
+                        Hand.CarriedObject.PoolledObjectRigibody.isKinematic = false;
+                    }
                     Hand.isFull = false;
                     if (playerInfos.EntityRigidBody.velocity.magnitude > 0.5f)
                     {

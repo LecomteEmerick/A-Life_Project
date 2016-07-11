@@ -21,8 +21,11 @@ public class PoolledObjectClass : MonoBehaviour {
     {
         this.PoolledObectInstance.SetActive(true);
         this.PoolledObectInstance.transform.position = SpawnPosition;
-        this.PoolledObjectRigibody.useGravity = true;
-        this.PoolledObjectRigibody.isKinematic = false;
+        if (PoolledObjectRigibody != null)
+        {
+            this.PoolledObjectRigibody.useGravity = true;
+            this.PoolledObjectRigibody.isKinematic = false;
+        }
         this.PoolledObjectCollider.enabled = true;
         StartEvent.Invoke();
     }
@@ -31,8 +34,11 @@ public class PoolledObjectClass : MonoBehaviour {
     {
         this.PoolledObjectRigibody.velocity = Vector3.zero;
         this.PoolledObectInstance.transform.position = Vector3.zero;
-        this.PoolledObjectRigibody.useGravity = false;
-        this.PoolledObjectRigibody.isKinematic = true;
+        if (PoolledObjectRigibody != null)
+        {
+            this.PoolledObjectRigibody.useGravity = false;
+            this.PoolledObjectRigibody.isKinematic = true;
+        }
         this.PoolledObjectCollider.enabled = false;
         this.PoolledObectInstance.SetActive(false);
     }

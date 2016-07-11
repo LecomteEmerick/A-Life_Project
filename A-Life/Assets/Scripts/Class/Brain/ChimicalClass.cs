@@ -6,12 +6,14 @@ using System.Collections.Generic;
 public class ConnexeChimical
 {
     public ChimicalClass ChimicalInfos;
+    public float RawValueConnexeValue;
     public float ProductionConnexeValue;
     public float EliminationConnexeValue;
 }
 
 public class ChimicalClass : MonoBehaviour
 {
+    public string PlayerDisplayName;
     public GameData.BrainChimical ChimicalType;
 
     public float Value;
@@ -56,6 +58,15 @@ public class ChimicalClass : MonoBehaviour
         this.Value -= EliminationRateBase + EliminationRateVariable;
         if (this.Value < MinValue)
             this.Value = MinValue;
+    }
+
+    public void ChangeRawValue(float value)
+    {
+        Value += value;
+        foreach (ConnexeChimical chimical in this.ImpactedChimical)
+        {
+            chimical.ChimicalInfos.ChangeRawValue(value * chimical.RawValueConnexeValue);
+        }
     }
 
     public void ChangeProductionRate(float value)
